@@ -9,13 +9,13 @@ export enum CourseActionTypes {
 export class CourseRequested implements Action {
   readonly type = CourseActionTypes.CourseRequested;
 
-  constructor(public payload: { courseId: number }) {}
+  constructor(public payload: number) {}
 }
 
 export class CourseLoaded implements Action {
   readonly type = CourseActionTypes.CourseLoaded;
 
-  constructor(public payload: { course: Course }) {}
+  constructor(public payload: Course) {}
 }
 
 export type CourseActions = CourseRequested | CourseLoaded;

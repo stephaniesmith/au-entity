@@ -25,7 +25,7 @@ export class CourseResolver implements Resolve<Course> {
       select(selectCourseById(courseId)),
       tap(course => {
         if (!course) {
-          this.store.dispatch(new CourseRequested({ courseId }));
+          this.store.dispatch(new CourseRequested(courseId));
         }
       }),
       filter(course => !!course),
