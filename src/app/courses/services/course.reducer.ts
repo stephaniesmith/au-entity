@@ -19,3 +19,5 @@ export function coursesReducer(state = initialCoursesState, { payload, type }): 
       return state;
   }
 }
+
+export const { selectAll } = adapter.getSelectors();
