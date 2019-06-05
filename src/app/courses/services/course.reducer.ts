@@ -11,7 +11,7 @@ export const adapter: EntityAdapter<Course> = createEntityAdapter<Course>();
 
 export const initialCoursesState: CoursesState = adapter.getInitialState();
 
-export function coursesReducer(state, { payload, type }): CoursesState {
+export function coursesReducer(state = initialCoursesState, { payload, type }): CoursesState {
   switch (type) {
     case CourseActionTypes.CourseLoaded:
       return adapter.addOne(payload, state);

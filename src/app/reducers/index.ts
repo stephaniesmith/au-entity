@@ -18,8 +18,7 @@ export interface AppState {
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  router: routerReducer,
-  courses: coursesReducer
+  router: routerReducer
 };
 
 
