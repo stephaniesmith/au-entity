@@ -20,4 +20,4 @@ export function coursesReducer(state = initialCoursesState, { payload, type }): 
   }
 }
 
-export const { selectAll } = adapter.getSelectors();
+export const { selectAll, selectEntities, selectIds, selectTotal } = adapter.getSelectors();

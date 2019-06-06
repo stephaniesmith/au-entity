@@ -5,7 +5,7 @@ import {filter, map, tap, withLatestFrom} from 'rxjs/operators';
 import {CoursesService} from '../services/courses.service';
 import {AppState} from '../../reducers';
 import {select, Store} from '@ngrx/store';
-import { selectAllCourses } from '../course.selector';
+import { selectAllCourses, selectBeginnerCourses } from '../course.selector';
 import { AllCoursesRequested } from '../course.action';
 @Component({
     selector: 'home',
@@ -32,10 +32,7 @@ export class HomeComponent implements OnInit {
             select(selectAllCourses)
         );
 
-        this.beginnerCourses$ = courses$.pipe(
-          map(courses => courses.filter(course => course.category === 'BEGINNER') )
-        );
-
+        this.beginnerCourses$ = this.store.pipe(select(selectBeginnerCourses));
         this.advancedCourses$ = courses$.pipe(
             map(courses => courses.filter(course => course.category === 'ADVANCED') )
         );

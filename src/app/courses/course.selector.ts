@@ -13,3 +13,8 @@ export const selectAllCourses = createSelector(
   selectCoursesState,
   fromCourse.selectAll
 );
+
+export const selectBeginnerCourses = createSelector(
+  selectAllCourses,
+  courses => courses.filter(({ category }) => category === 'BEGINNER')
+);
