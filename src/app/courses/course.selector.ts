@@ -28,3 +28,8 @@ export const selectPromoCourses = createSelector(
   selectAllCourses,
   courses => courses.filter(({ promo }) => promo).length
 );
+
+export const allCoursesLoaded = createSelector(
+  selectCoursesState,
+  coursesState => coursesState.allCoursesLoaded
+);
