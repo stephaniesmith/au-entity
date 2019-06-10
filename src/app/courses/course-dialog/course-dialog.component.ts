@@ -7,6 +7,7 @@ import {CoursesService} from "../services/courses.service";
 import {AppState} from "../../reducers";
 import {Store} from "@ngrx/store";
 import {Update} from "@ngrx/entity";
+import { CourseSaved } from '../course.action';
 
 @Component({
     selector: 'course-dialog',
@@ -54,7 +55,12 @@ export class CourseDialogComponent implements OnInit {
             .saveCourse(this.courseId, changes)
             .subscribe(
                 () => {
+                    const course: Update<Course> = {
+                        id: this.courseId,
+                        changes
+                    };
 
+                    this.store.dispatch(new CourseSaved(course));
                     this.dialogRef.close();
                 }
             );
